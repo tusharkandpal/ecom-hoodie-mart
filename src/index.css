@@ -1,13 +1,23 @@
-body {
+/* -------------- || IMPORTS ---------------- */
+@import url("https://wings-ui.netlify.app/components/component.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
+@import url("../node_modules/mockman-js/dist/style.css");
+
+/* ------------------- || UNIVERSAL CSS ---------------------------*/
+* {
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* ------------------- || ROOT CSS ---------------------------*/
+:root {
+  --brand-color: #f72585;
+  --container-bg-color: #ffffff;
+  --component-bg-color: #f7f7f7;
+  --card-overlay-bg-color: #800039;
+  --banner-bg-color: #c4c4c4;
 }
+
