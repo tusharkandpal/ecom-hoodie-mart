@@ -1,0 +1,21 @@
+/* --------------------------- || CATEGORY SECTION ----------------- */
+.category-section {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.card-vertical {
+  min-width: 14rem;
+}
+.card-overlay-details {
+  background-color: var(--card-overlay-bg-color);
+}
+
+@media screen and (max-width: 1000px) {
+  .card-vertical {
+    min-width: 10rem;
+  }
+}
+
+

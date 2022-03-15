@@ -1,7 +1,7 @@
 import "./App.css";
 import MockMan from "mockman-js";
 import { Routes, Route } from "react-router-dom";
-import { Home } from "./pages/page-base";
+import { Home } from "./pages/pages";
 
 function App() {
   return (

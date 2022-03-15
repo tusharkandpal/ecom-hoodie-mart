@@ -1,0 +1,12 @@
+/* --------------------------- || MAIN ----------------- */
+.main {
+  padding: 2rem 7rem;
+  background-color: var(--component-bg-color);
+}
+
+@media screen and (max-width: 1000px) {
+  .main {
+    padding: 1.5rem;
+  }
+}
+
