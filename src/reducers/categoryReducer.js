@@ -5,7 +5,7 @@ export const initialState = {
   loading: true,
 };
 
-export const APIReducer = (state, { type, payload }) => {
+export const categoryReducer = (state, { type, payload }) => {
   switch (type) {
     case "SUCCESS":
       return {

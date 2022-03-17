@@ -1,19 +1,19 @@
 import "./Categories.css";
 import axios from "axios";
 import { useEffect } from "react";
-import { useAPI } from "../../context/api-context";
+import { useCategory } from "../../context/category-context";
 
 export function Categories() {
-  const { APIState, APIDispatch } = useAPI();
-  const { data, error, loading } = APIState;
+  const { categoryState, categoryDispatch } = useCategory();
+  const { data, error, loading } = categoryState;
 
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get("/api/categories");
-        APIDispatch({ type: "SUCCESS", payload: { data: response.data } });
+        const { data } = await axios.get("/api/categories");
+        categoryDispatch({ type: "SUCCESS", payload: { data: data } });
       } catch (error) {
-        APIDispatch({ type: "ERROR", payload: { error: error.message } });
+        categoryDispatch({ type: "ERROR", payload: { error: error.message } });
       }
     })();
   }, []);
