@@ -1,5 +1,5 @@
 import "./Home.css";
-import { Nav, Categories } from "../../components/components";
+import { Nav, Categories, HomeMain } from "../../components/components";
 
 export function Home() {
   return (
@@ -7,6 +7,7 @@ export function Home() {
       <Nav />
       <main className="main">
         <Categories />
+        <HomeMain />
       </main>
     </div>
   );
