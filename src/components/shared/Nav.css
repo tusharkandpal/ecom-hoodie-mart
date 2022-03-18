@@ -7,7 +7,6 @@
 }
 
 .brand-name {
-  font-size: 1.3rem;
   margin: 0.5rem 0;
 }
 
@@ -24,7 +23,7 @@
 .search-icon {
   position: absolute;
   left: 0.5rem;
-  top: 0.4rem;
+  top: 0.95rem;
   cursor: pointer;
 }
 
@@ -33,7 +32,8 @@
   border-radius: 0.3rem;
   border: 0;
   outline: transparent;
-  background-color: lightgrey;
+  background-color: var(--component-bg-color);
+  margin: 0.5rem 0;
 }
 
 .search-input.dark {

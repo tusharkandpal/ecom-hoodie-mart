@@ -14,7 +14,10 @@
 
 @media screen and (max-width: 1000px) {
   .card-vertical {
-    min-width: 10rem;
+    min-width: 12rem;
+  }
+  .category-section {
+    gap: 0;
   }
 }
 
