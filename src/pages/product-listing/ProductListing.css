@@ -1,0 +1,32 @@
+/* ---------------------- || PRODUCTS PAGE --------------------------- */
+.products-main {
+  display: flex;
+}
+
+/* ---------------------- || PRODUCTS SECTION --------------------------------*/
+.products-section {
+  background-color: var(--component-bg-color);
+  border-radius: 0.3rem;
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+.products-sub-header {
+  display: inline;
+}
+
+/* ----------------------- || PRODUCT LAYOUT ---------------------------*/
+.products-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1.5rem 0;
+  justify-content: center;
+}
+
+@media screen and (max-width: 500px) {
+  .products-section-header {
+    text-align: center;
+  }
+}
+
+

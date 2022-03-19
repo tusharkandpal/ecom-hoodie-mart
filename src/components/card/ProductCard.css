@@ -1,0 +1,11 @@
+/* ------- Product Card ----------- */
+
+.products-layout .card-vertical {
+  width: 17.5rem;
+}
+.products-layout .card-img {
+  width: 100%;
+  min-height: 24rem;
+}
+
+

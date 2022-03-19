@@ -1,31 +1,29 @@
 import "./Categories.css";
 import axios from "axios";
 import { useEffect } from "react";
-import { useCategory } from "../../context/category-context";
+import { useCategory } from "../../context/context";
 
 export function Categories() {
   const { categoryState, categoryDispatch } = useCategory();
-  const { data, error, loading } = categoryState;
+  const { categories, error, loading } = categoryState;
 
   useEffect(() => {
     (async () => {
       try {
         const { data } = await axios.get("/api/categories");
-        categoryDispatch({ type: "SUCCESS", payload: { data: data } });
+        categoryDispatch({ type: "SUCCESS", payload: { data: data.categories } });
       } catch (error) {
         categoryDispatch({ type: "ERROR", payload: { error: error.message } });
       }
     })();
   }, []);
 
-  const categories = data.categories;
-
   return (
     <section className="category-section">
       {loading ? (
-        <p>Fetching categories for you...</p>
+        <h3>Fetching categories for you...</h3>
       ) : error !== "" ? (
-        <p style={{ color: "red" }}>{error}</p>
+        <p className="error-message">{error}</p>
       ) : (
         categories.map((category) => (
           <div className="card card-vertical" key={category._id}>

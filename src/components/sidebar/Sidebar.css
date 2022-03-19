@@ -1,0 +1,57 @@
+/* ------------------------ || PRODUCTS SIDEBAR --------------------------------*/
+.products-sidebar {
+  flex: 0 0 16rem;
+}
+.sidebar-list {
+  list-style: none;
+  padding: 1.5rem;
+}
+.sidebar-list-item {
+  margin-bottom: 1.8rem;
+}
+.list-filter-clear {
+  float: right;
+  text-decoration: underline;
+}
+.list-filter-header {
+  font-weight: 800;
+}
+
+/* ---------------------- || SIDEBAR LIST --------------------------------*/
+.item-label {
+  display: inline-block;
+  margin-top: 1rem;
+}
+.item-input {
+  margin-right: 0.3rem;
+}
+
+.sidebar-drawer {
+  display: none;
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  background-color: var(--primary-bg-hover-color);
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.3rem;
+}
+
+@media screen and (max-width: 500px) {
+  .products-sidebar {
+    display: none;
+  }
+  .sidebar-drawer {
+    display: block;
+  }
+
+  .sidebar-toggle {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12rem;
+    min-height: 100vh;
+    background-color: var(--outline-hover-color);
+  }
+}
+
