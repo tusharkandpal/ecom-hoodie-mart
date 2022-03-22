@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { Sidebar, ProductCard } from "../../components/components";
 import { useProduct } from "../../context/context";
+import { useFilteredProducts } from "../../custom-hooks/custom-hooks";
 
 export function ProductListing() {
   const { productState, productDispatch } = useProduct();
@@ -19,6 +20,8 @@ export function ProductListing() {
     })();
   }, []);
 
+  const filteredProducts = useFilteredProducts([...products]);
+
   return (
     <main className="products-main">
       <Sidebar />
@@ -26,7 +29,7 @@ export function ProductListing() {
       <section className="products-section">
         <p className="products-section-header">
           <h3 className="products-sub-header">Showing All Products</h3>
-          <span> (Showing {products.length} products)</span>
+          <span> (Showing {filteredProducts.length} products)</span>
         </p>
         {/* || PRODUCTS LAYOUT  */}
         <article className="products-layout">
@@ -35,7 +38,7 @@ export function ProductListing() {
           ) : error !== "" ? (
             <p className="error-message">{error}</p>
           ) : (
-            products.map((product) => (
+            filteredProducts.map((product) => (
               <ProductCard {...product} key={product._id} />
             ))
           )}

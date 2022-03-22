@@ -3,6 +3,11 @@ export const initialState = {
   status: "",
   error: "",
   loading: true,
+  filters: {
+    sortByPrice: "",
+    priceRange: 4000,
+    categories: [],
+  },
 };
 
 export const productReducer = (state, { type, payload }) => {
@@ -14,12 +19,42 @@ export const productReducer = (state, { type, payload }) => {
         status: "Fetched successfully",
         loading: false,
       };
+
     case "ERROR":
       return {
         ...state,
         error: payload.error,
         loading: false,
       };
+
+    case "SORT_BY_PRICE":
+      return {
+        ...state,
+        filters: { ...state.filters, sortByPrice: payload.sort },
+      };
+
+    case "CATEGORY":
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          categories: state.filters.categories.includes(payload.category)
+            ? state.filters.categories.filter(
+                (category) => category !== payload.category
+              )
+            : [...state.filters.categories, payload.category],
+        },
+      };
+
+    case "PRICE_RANGE":
+      return {
+        ...state,
+        filters: { ...state.filters, priceRange: payload.price },
+      };
+
+    case "CLEAR_ALL":
+      return { ...state, filters: initialState.filters };
+
     default:
       return state;
   }
