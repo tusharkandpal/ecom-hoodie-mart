@@ -1,18 +1,18 @@
 export const initialState = {
-  categories: [],
+  products: [],
   status: "",
   error: "",
   loading: true,
 };
 
-export const categoryReducer = (state, { type, payload }) => {
+export const productReducer = (state, { type, payload }) => {
   switch (type) {
     case "SUCCESS":
       return {
         ...state,
-        categories: payload.data,
+        products: payload.data,
         status: "Fetched successfully",
-        loading: false
+        loading: false,
       };
     case "ERROR":
       return {

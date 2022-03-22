@@ -1,4 +1,5 @@
 import "./HomeMain.css";
+import { Link } from "react-router-dom";
 
 export function HomeMain() {
   return (
@@ -11,22 +12,24 @@ export function HomeMain() {
         />
       </section>
       <section className="article-section">
-        <div className="article">
-          <img
-            className="article-img"
-            src="https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/17124224/2022/2/10/635e07f0-c682-4f3a-b69f-3cbf68ab4d991644505755552Oversizedzip-throughhoodie3.jpg"
-          />
-          <div className="article-details">
-            <p className="article-title">NEW ARRIVALS</p>
-            <div className="article-sub-details">
-              <h2 className="article-header">Winter Collection</h2>
-              <p className="article-text">
-                Check out our best winter collection to stay warm in style this
-                season
-              </p>
+        <Link to="/product-listing">
+          <div className="article">
+            <img
+              className="article-img"
+              src="https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/17124224/2022/2/10/635e07f0-c682-4f3a-b69f-3cbf68ab4d991644505755552Oversizedzip-throughhoodie3.jpg"
+            />
+            <div className="article-details">
+              <p className="article-title">NEW ARRIVALS</p>
+              <div className="article-sub-details">
+                <h2 className="article-header">Winter Collection</h2>
+                <p className="article-text">
+                  Check out our best winter collection to stay warm in style
+                  this season
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
         <div className="article">
           <img
             className="article-img"
@@ -46,3 +49,5 @@ export function HomeMain() {
     </div>
   );
 }
+
+
