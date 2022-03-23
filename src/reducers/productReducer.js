@@ -7,6 +7,7 @@ export const initialState = {
     sortByPrice: "",
     priceRange: 4000,
     categories: [],
+    rating: 0,
   },
 };
 
@@ -50,6 +51,12 @@ export const productReducer = (state, { type, payload }) => {
       return {
         ...state,
         filters: { ...state.filters, priceRange: payload.price },
+      };
+
+    case "RATING":
+      return {
+        ...state,
+        filters: { ...state.filters, rating: payload.rating },
       };
 
     case "CLEAR_ALL":

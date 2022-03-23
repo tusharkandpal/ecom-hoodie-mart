@@ -3,16 +3,20 @@ import {
   sortByPriceFilterProducts,
   categoryFilterProducts,
   priceRangeFilterProducts,
+  ratingFilterProducts,
 } from "../utils/utils.js";
 
 export const useFilteredProducts = (filteredProducts) => {
   const { productState } = useProduct();
-  const { sortByPrice, categories, priceRange } = productState.filters;
+  const { sortByPrice, categories, priceRange, rating } = productState.filters;
 
   return sortByPriceFilterProducts(
-    priceRangeFilterProducts(
-      categoryFilterProducts(filteredProducts, categories),
-      priceRange
+    ratingFilterProducts(
+      priceRangeFilterProducts(
+        categoryFilterProducts(filteredProducts, categories),
+        priceRange
+      ),
+      rating
     ),
     sortByPrice
   );

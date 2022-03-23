@@ -8,6 +8,7 @@ export function ProductCard({
   originalPrice,
   sellingPrice,
   quantity,
+  rating
 }) {
   const discount = Math.round(
     ((originalPrice - sellingPrice) / originalPrice) * 100
@@ -15,7 +16,10 @@ export function ProductCard({
 
   return (
     <div className="card card-vertical">
-      <img className="card-img" src={imgUrl} alt="product" />
+      <div class="card-overlay-container">
+        <img className="card-img" src={imgUrl} alt="product" />
+        <small className={`card-badge ${rating < 1.5 ? "red-bg" : rating < 3 ? "yellow-bg" : "green-bg"}`}>{rating} <i className="fa-solid fa-star"></i></small>
+      </div>
       <div className="card-details">
         <h3 className="card-title">{title}</h3>
         <small className="card-sub-title">{subTitle}</small>

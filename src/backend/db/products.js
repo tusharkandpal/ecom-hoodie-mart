@@ -16,6 +16,7 @@ export const products = [
     sellingPrice: 3599,
     quantity: 39,
     categoryName: "Men",
+    rating: 4.6
   },
   {
     _id: uuid(),
@@ -27,6 +28,7 @@ export const products = [
     sellingPrice: 999,
     quantity: 36,
     categoryName: "Kids",
+    rating: 3.8
   },
   {
     _id: uuid(),
@@ -38,6 +40,7 @@ export const products = [
     sellingPrice: 944,
     quantity: 16,
     categoryName: "Girls",
+    rating: 2.7
   },
   {
     _id: uuid(),
@@ -49,6 +52,7 @@ export const products = [
     sellingPrice: 1550,
     quantity: 3,
     categoryName: "Men",
+    rating: 4.0
   },
   {
     _id: uuid(),
@@ -60,6 +64,7 @@ export const products = [
     sellingPrice: 1499,
     quantity: 21,
     categoryName: "Boys",
+    rating: 3.2
   },
   {
     _id: uuid(),
@@ -71,6 +76,7 @@ export const products = [
     sellingPrice: 1299,
     quantity: 4,
     categoryName: "Girls",
+    rating: 1.3
   },
   {
     _id: uuid(),
@@ -82,6 +88,7 @@ export const products = [
     sellingPrice: 689,
     quantity: 10,
     categoryName: "Kids",
+    rating: 1.8
   },
   {
     _id: uuid(),
@@ -93,6 +100,7 @@ export const products = [
     sellingPrice: 1439,
     quantity: 15,
     categoryName: "Women",
+    rating: 4.7
   },
   {
     _id: uuid(),
@@ -104,6 +112,7 @@ export const products = [
     sellingPrice: 629,
     quantity: 24,
     categoryName: "Men",
+    rating: 3.6
   },
   {
     _id: uuid(),
@@ -115,6 +124,7 @@ export const products = [
     sellingPrice: 773,
     quantity: 45,
     categoryName: "Women",
+    rating: 2.0
   },
   {
     _id: uuid(),
@@ -126,6 +136,7 @@ export const products = [
     sellingPrice: 1329,
     quantity: 33,
     categoryName: "Boys",
+    rating: 2.4
   },
   {
     _id: uuid(),
@@ -137,6 +148,7 @@ export const products = [
     sellingPrice: 2550,
     quantity: 19,
     categoryName: "Girls",
+    rating: 3.5
   },
   {
     _id: uuid(),
@@ -148,6 +160,7 @@ export const products = [
     sellingPrice: 2474,
     quantity: 23,
     categoryName: "Women",
+    rating: 1.5
   },
   {
     _id: uuid(),
@@ -159,6 +172,7 @@ export const products = [
     sellingPrice: 1119,
     quantity: 32,
     categoryName: "Men",
+    rating: 4.3
   },
   {
     _id: uuid(),
@@ -170,6 +184,7 @@ export const products = [
     sellingPrice: 629,
     quantity: 16,
     categoryName: "Women",
+    rating: 4.4
   },
   {
     _id: uuid(),
@@ -181,6 +196,7 @@ export const products = [
     sellingPrice: 1234,
     quantity: 25,
     categoryName: "Boys",
+    rating: 1.0
   },
   {
     _id: uuid(),
@@ -192,6 +208,7 @@ export const products = [
     sellingPrice: 1988,
     quantity: 7,
     categoryName: "Boys",
+    rating: 3.8
   },
   {
     _id: uuid(),
@@ -203,6 +220,7 @@ export const products = [
     sellingPrice: 1399,
     quantity: 37,
     categoryName: "Kids",
+    rating: 3.2
   },
   {
     _id: uuid(),
@@ -214,6 +232,7 @@ export const products = [
     sellingPrice: 1100,
     quantity: 38,
     categoryName: "Girls",
+    rating: 2.9
   },
   {
     _id: uuid(),
@@ -225,6 +244,7 @@ export const products = [
     sellingPrice: 1790,
     quantity: 28,
     categoryName: "Boys",
+    rating: 3.3
   },
 ];
 
