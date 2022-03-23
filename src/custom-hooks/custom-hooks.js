@@ -1,0 +1,2 @@
+export {useFilteredProducts} from "./useFIlteredProducts";
+

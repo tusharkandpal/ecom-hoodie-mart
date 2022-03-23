@@ -12,6 +12,7 @@
 .list-filter-clear {
   float: right;
   text-decoration: underline;
+  cursor: pointer;
 }
 .list-filter-header {
   font-weight: 800;
@@ -25,7 +26,14 @@
 .item-input {
   margin-right: 0.3rem;
 }
-
+.slider {
+  width: 100%;
+  margin-top: 1rem;
+}
+.slider-list {
+  display: flex;
+  justify-content: space-between;
+}
 .sidebar-drawer {
   display: none;
   position: fixed;
@@ -49,7 +57,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 12rem;
+    width: 13rem;
     min-height: 100vh;
     background-color: var(--outline-hover-color);
   }
