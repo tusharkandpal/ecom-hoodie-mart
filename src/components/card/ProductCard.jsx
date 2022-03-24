@@ -16,7 +16,7 @@ export function ProductCard({
 
   return (
     <div className="card card-vertical">
-      <div class="card-overlay-container">
+      <div className="card-overlay-container">
         <img className="card-img" src={imgUrl} alt="product" />
         <small className={`card-badge ${rating < 1.5 ? "red-bg" : rating < 3 ? "yellow-bg" : "green-bg"}`}>{rating} <i className="fa-solid fa-star"></i></small>
       </div>
