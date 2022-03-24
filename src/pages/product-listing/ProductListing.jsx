@@ -27,10 +27,10 @@ export function ProductListing() {
       <Sidebar />
       {/* || PRODUCTS SECTION */}
       <section className="products-section">
-        <p className="products-section-header">
+        <div className="products-section-header">
           <h3 className="products-sub-header">Showing All Products</h3>
           <span> (Showing {filteredProducts.length} products)</span>
-        </p>
+        </div>
         {/* || PRODUCTS LAYOUT  */}
         <article className="products-layout">
           {loading ? (

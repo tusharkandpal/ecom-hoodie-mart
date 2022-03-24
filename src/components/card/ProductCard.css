@@ -1,4 +1,16 @@
 /* ------- Product Card ----------- */
+.card-badge {
+  color: var(--card-overlay-color);
+}
+.red-bg {
+  background-color: var(--asterisk-color);
+}
+.yellow-bg {
+  background-color: var(--outline-info-border-color);
+}
+.green-bg {
+  background-color: var(--card-discount-color);
+}
 
 .products-layout .card-vertical {
   width: 17.5rem;
@@ -7,5 +19,7 @@
   width: 100%;
   min-height: 24rem;
 }
-
+.card-price-section {
+  align-items: center;
+}
 

@@ -7,7 +7,7 @@
   padding: 1.5rem;
 }
 .sidebar-list-item {
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.3rem;
 }
 .list-filter-clear {
   float: right;
@@ -20,15 +20,16 @@
 
 /* ---------------------- || SIDEBAR LIST --------------------------------*/
 .item-label {
-  display: inline-block;
-  margin-top: 1rem;
+  display: inline-flex;
+  margin-top: 0.8rem;
+  align-items: center;
 }
 .item-input {
   margin-right: 0.3rem;
 }
 .slider {
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 0.8rem;
 }
 .slider-list {
   display: flex;
@@ -42,6 +43,7 @@
   background-color: var(--primary-bg-hover-color);
   padding: 0.5rem 0.8rem;
   border-radius: 0.3rem;
+  z-index: 2;
 }
 
 @media screen and (max-width: 500px) {
@@ -60,6 +62,7 @@
     width: 13rem;
     min-height: 100vh;
     background-color: var(--outline-hover-color);
+    z-index: 2;
   }
 }
 

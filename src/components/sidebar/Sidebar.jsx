@@ -5,7 +5,7 @@ import { useProduct } from "../../context/context";
 export function Sidebar() {
   const [sidebarToggle, setSidebarToggle] = useState("");
   const { productState, productDispatch } = useProduct();
-  const { sortByPrice, categories, priceRange } = productState.filters;
+  const { sortByPrice, categories, priceRange, rating } = productState.filters;
 
   const sidebarHandler = () => {
     sidebarToggle === ""
@@ -145,6 +145,71 @@ export function Sidebar() {
             </div>
           </li>
           <li className="sidebar-list-item">
+            <span className="list-filter-header">Rating</span>
+            <div className="list-filter-item">
+              <label className="item-label">
+                <input
+                  type="radio"
+                  name="rating"
+                  className="item-input"
+                  onChange={() =>
+                    productDispatch({
+                      type: "RATING",
+                      payload: { rating: 4 },
+                    })
+                  }
+                  checked={rating === 4}
+                />
+                4 stars & above
+              </label>
+              <label className="item-label">
+                <input
+                  type="radio"
+                  name="rating"
+                  className="item-input"
+                  onChange={() =>
+                    productDispatch({
+                      type: "RATING",
+                      payload: { rating: 3 },
+                    })
+                  }
+                  checked={rating === 3}
+                />
+                3 stars & above
+              </label>
+              <label className="item-label">
+                <input
+                  type="radio"
+                  name="rating"
+                  className="item-input"
+                  onChange={() =>
+                    productDispatch({
+                      type: "RATING",
+                      payload: { rating: 2 },
+                    })
+                  }
+                  checked={rating === 2}
+                />
+                2 stars & above
+              </label>
+              <label className="item-label">
+                <input
+                  type="radio"
+                  name="rating"
+                  className="item-input"
+                  onChange={() =>
+                    productDispatch({
+                      type: "RATING",
+                      payload: { rating: 1 },
+                    })
+                  }
+                  checked={rating === 1}
+                />
+                1 star & above
+              </label>
+            </div>
+          </li>
+          <li className="sidebar-list-item">
             <span className="list-filter-header">Sort by</span>
             <div className="list-filter-item">
               <label className="item-label">
@@ -184,3 +249,4 @@ export function Sidebar() {
     </>
   );
 }
+
