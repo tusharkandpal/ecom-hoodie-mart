@@ -144,14 +144,14 @@ export function Sidebar() {
               </label>
             </div>
           </li>
-          <li class="sidebar-list-item">
-            <span class="list-filter-header">Rating</span>
-            <div class="list-filter-item">
-              <label class="item-label">
+          <li className="sidebar-list-item">
+            <span className="list-filter-header">Rating</span>
+            <div className="list-filter-item">
+              <label className="item-label">
                 <input
                   type="radio"
                   name="rating"
-                  class="item-input"
+                  className="item-input"
                   onChange={() =>
                     productDispatch({
                       type: "RATING",
@@ -162,11 +162,11 @@ export function Sidebar() {
                 />
                 4 stars & above
               </label>
-              <label class="item-label">
+              <label className="item-label">
                 <input
                   type="radio"
                   name="rating"
-                  class="item-input"
+                  className="item-input"
                   onChange={() =>
                     productDispatch({
                       type: "RATING",
@@ -177,11 +177,11 @@ export function Sidebar() {
                 />
                 3 stars & above
               </label>
-              <label class="item-label">
+              <label className="item-label">
                 <input
                   type="radio"
                   name="rating"
-                  class="item-input"
+                  className="item-input"
                   onChange={() =>
                     productDispatch({
                       type: "RATING",
@@ -192,11 +192,11 @@ export function Sidebar() {
                 />
                 2 stars & above
               </label>
-              <label class="item-label">
+              <label className="item-label">
                 <input
                   type="radio"
                   name="rating"
-                  class="item-input"
+                  className="item-input"
                   onChange={() =>
                     productDispatch({
                       type: "RATING",
