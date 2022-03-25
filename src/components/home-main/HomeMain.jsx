@@ -30,24 +30,24 @@ export function HomeMain() {
             </div>
           </div>
         </Link>
-        <div className="article">
-          <img
-            className="article-img"
-            src="https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/17124354/2022/2/10/bf88bdb0-c618-45c0-a2dc-a48281c88d9e1644508343901Printedhoodie1.jpg"
-          />
-          <div className="article-details">
-            <p className="article-title">TRENDING FASHION</p>
-            <div className="article-sub-details">
-              <h2 className="article-header">Premium Collection</h2>
-              <p className="article-text">
-                Check out our premium collection for best offers on top brands
-              </p>
+        <Link to="/product-listing">
+          <div className="article">
+            <img
+              className="article-img"
+              src="https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/17124354/2022/2/10/bf88bdb0-c618-45c0-a2dc-a48281c88d9e1644508343901Printedhoodie1.jpg"
+            />
+            <div className="article-details">
+              <p className="article-title">TRENDING FASHION</p>
+              <div className="article-sub-details">
+                <h2 className="article-header">Premium Collection</h2>
+                <p className="article-text">
+                  Check out our premium collection for best offers on top brands
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       </section>
     </div>
   );
 }
-
-
