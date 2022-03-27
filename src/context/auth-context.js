@@ -9,13 +9,6 @@ const AuthProvider = ({ children }) => {
   const [authState, authDispatch] = useReducer(authReducer, authInitialState);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (localStorage.getItem("encodedToken") !== null) {
-      const user = JSON.parse(localStorage.getItem("user"));
-      authDispatch({ type: "LOGIN", payload: { user: user } });
-    }
-  }, []);
-
   const loginHandler = async (email, password) => {
     try {
       const { data } = await axios.post("/api/auth/login", {

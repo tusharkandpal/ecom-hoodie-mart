@@ -1,5 +1,5 @@
 export const authInitialState = {
-  user: {},
+  user: localStorage.getItem("encodedToken") !== null ? JSON.parse(localStorage.getItem("user")) : {},
   isLoggedIn: false,
   error: "",
 };
