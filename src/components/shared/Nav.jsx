@@ -1,10 +1,11 @@
 import "./Nav.css";
 import { Link, useLocation } from "react-router-dom";
-import { useAuth } from "../../context/context";
+import { useAuth, useWishlist } from "../../context/context";
 
 export function Nav() {
   const { authState, logoutHandler } = useAuth();
   const { pathname } = useLocation();
+  const { wishlist } = useWishlist();
   const { isLoggedIn } = authState;
 
   return (
@@ -38,10 +39,12 @@ export function Nav() {
             </button>
           </Link>
         )}
-        <span className="badge icon-badge">
-          <i className="fa-regular fa-heart badge-symbol"></i>
-          <span className="badge-count">2</span>
-        </span>
+        <Link to="/wishlist">
+          <span className="badge icon-badge">
+            <i className="fa-regular fa-heart badge-symbol"></i>
+            <span className="badge-count">{wishlist.length}</span>
+          </span>
+        </Link>
         <span className="badge icon-badge">
           <i className="fas fa-shopping-cart badge-symbol"></i>
           <span className="badge-count">3</span>

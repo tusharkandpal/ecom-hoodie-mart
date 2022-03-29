@@ -25,15 +25,21 @@ const AuthProvider = ({ children }) => {
   };
 
   const logoutHandler = () => {
-    authDispatch({ type: "LOGOUT" });
     localStorage.removeItem("encodedToken");
     localStorage.removeItem("user");
+    localStorage.removeItem("wishlist");
+    authDispatch({ type: "LOGOUT" });
     navigate("/", { replace: true });
   };
 
   return (
     <AuthContext.Provider
-      value={{ authState, loginHandler, logoutHandler, authDispatch }}
+      value={{
+        authState,
+        loginHandler,
+        logoutHandler,
+        authDispatch,
+      }}
     >
       {children}
     </AuthContext.Provider>

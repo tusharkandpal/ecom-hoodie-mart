@@ -1,6 +1,13 @@
 export const authInitialState = {
-  user: localStorage.getItem("encodedToken") !== null ? JSON.parse(localStorage.getItem("user")) : {},
-  isLoggedIn: false,
+  ...(localStorage.getItem("encodedToken") !== null
+    ? {
+        user: JSON.parse(localStorage.getItem("user")),
+        isLoggedIn: true,
+      }
+    : {
+        user: {},
+        isLoggedIn: false,
+      }),
   error: "",
 };
 
@@ -13,8 +20,13 @@ export const authReducer = (state, { type, payload }) => {
         isLoggedIn: true,
       };
 
-    case "LOGOUT":
-      return authInitialState;
+    case "LOGOUT": {
+      return {
+        user: {},
+        isLoggedIn: false,
+        error: "",
+      };
+    }
 
     case "FAILED":
       return { ...state, error: `${payload.path} failed! Please try again.` };
