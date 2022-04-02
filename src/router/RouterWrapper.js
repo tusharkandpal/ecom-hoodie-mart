@@ -1,6 +1,6 @@
 import MockMan from "mockman-js";
 import { Routes, Route } from "react-router-dom";
-import { Home, Login, ProductListing, Wishlist } from "../pages/pages";
+import { Home, Login, ProductListing, Wishlist, Cart } from "../pages/pages";
 import { ProtectedRoute } from "./ProtectedRoute";
 
 export function RouterWrapper() {
@@ -11,6 +11,10 @@ export function RouterWrapper() {
       <Route
         path="/wishlist"
         element={<ProtectedRoute ProtectedComponent={<Wishlist />} />}
+      ></Route>
+      <Route
+        path="/cart"
+        element={<ProtectedRoute ProtectedComponent={<Cart />} />}
       ></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/mockman" element={<MockMan />}></Route>

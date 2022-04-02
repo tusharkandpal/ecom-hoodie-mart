@@ -1,4 +1,4 @@
-import "./Wishlist.css";
+import "../Private.css";
 import { useWishlist } from "../../../context/context";
 import { ProductCard } from "../../../components/components";
 
@@ -8,8 +8,8 @@ export const Wishlist = () => {
   return (
     <>
       {wishlist.length === 0 ? (
-        <div className="wishlist-main">
-          <h1 className="wishlist-header">
+        <div className="empty-component">
+          <h1 className="private-header">
             NO WISHLISTED ITEMS{" "}
             <span role="img" aria-label="sad-emoji">
               🥺💔
@@ -17,9 +17,9 @@ export const Wishlist = () => {
           </h1>
         </div>
       ) : (
-        <div>
-          <h2 className="wishlist-header">Wishlist ({wishlist.length})</h2>
-          <div className="products-layout">
+        <div className="private-component">
+          <h2 className="private-header">Wishlist ({wishlist.length})</h2>
+          <div className="private-products">
             {wishlist.map((wishlistProduct) => (
               <ProductCard {...wishlistProduct} key={wishlistProduct._id} />
             ))}

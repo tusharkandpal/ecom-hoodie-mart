@@ -1,12 +1,19 @@
 import "./Nav.css";
+import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useAuth, useWishlist } from "../../context/context";
+import { useAuth, useWishlist, useCart } from "../../context/context";
 
 export function Nav() {
   const { authState, logoutHandler } = useAuth();
   const { pathname } = useLocation();
-  const { wishlist } = useWishlist();
+  const { wishlist, setWishlist } = useWishlist();
+  const { cart, setCart } = useCart();
   const { isLoggedIn } = authState;
+
+  useEffect(() => {
+    setWishlist([]);
+    setCart([]);
+  }, [isLoggedIn]);
 
   return (
     <nav className="navbar">
@@ -39,15 +46,18 @@ export function Nav() {
             </button>
           </Link>
         )}
-        <Link to="/wishlist">
-          <span className="badge icon-badge">
+
+        <span className="badge icon-badge">
+          <Link to="/wishlist">
             <i className="fa-regular fa-heart badge-symbol"></i>
             <span className="badge-count">{wishlist.length}</span>
-          </span>
-        </Link>
+          </Link>
+        </span>
         <span className="badge icon-badge">
-          <i className="fas fa-shopping-cart badge-symbol"></i>
-          <span className="badge-count">3</span>
+          <Link to="/cart">
+            <i className="fas fa-shopping-cart badge-symbol"></i>
+            <span className="badge-count">{cart.length}</span>
+          </Link>
         </span>
         <i className="fa-solid fa-circle-half-stroke badge badge-symbol"></i>
       </div>

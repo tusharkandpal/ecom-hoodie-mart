@@ -1,5 +1,6 @@
 import "./ProductCard.css";
-import { useWishlist } from "../../context/context";
+import { Link } from "react-router-dom";
+import { useWishlist, useCart } from "../../context/context";
 
 export const ProductCard = (product) => {
   const {
@@ -16,7 +17,9 @@ export const ProductCard = (product) => {
   const discount = Math.round(
     ((originalPrice - sellingPrice) / originalPrice) * 100
   );
-  const {wishlist, addToWishlistHandler, removeFromWishlistHandler} = useWishlist();
+  const { wishlist, addToWishlistHandler, removeFromWishlistHandler } =
+    useWishlist();
+  const { cart, addToCartHandler } = useCart();
 
   return (
     <div className="card card-vertical">
@@ -45,9 +48,22 @@ export const ProductCard = (product) => {
         </small>
       )}
       <div className="card-buttons">
-        <button type="button" className="btn btn-sm primary">
-          <i className="fas fa-shopping-cart btn-icon"></i> Add to cart
-        </button>
+        {cart.some((cartProduct) => cartProduct._id === _id) ? (
+          <Link to="/cart">
+            <button type="button" className="btn btn-sm primary">
+              <i className="fas fa-shopping-cart btn-icon"></i>Go to cart
+            </button>
+          </Link>
+        ) : (
+          <button
+            type="button"
+            className="btn btn-sm primary"
+            onClick={() => addToCartHandler(product)}
+          >
+            <i className="fa-solid fa-cart-plus btn-icon"></i>
+            Add to cart
+          </button>
+        )}
         {wishlist.some((wishlistProduct) => wishlistProduct._id === _id) ? (
           <button
             type="button"
@@ -71,4 +87,5 @@ export const ProductCard = (product) => {
       </div>
     </div>
   );
-}
+};
+

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useEffect, createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer } from "react";
 import { authInitialState, authReducer } from "../reducers/reducer";
 
 const AuthContext = createContext();
@@ -27,7 +27,6 @@ const AuthProvider = ({ children }) => {
   const logoutHandler = () => {
     localStorage.removeItem("encodedToken");
     localStorage.removeItem("user");
-    localStorage.removeItem("wishlist");
     authDispatch({ type: "LOGOUT" });
     navigate("/", { replace: true });
   };

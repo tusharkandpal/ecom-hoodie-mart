@@ -80,7 +80,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Metro Kids Company",
+    title: "Kids Company",
     subTitle: "Boys Colourblocked Sweatshirt",
     imgUrl:
       "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/16540724/2021/12/17/4ed88269-f72b-449c-aa16-2220e5242d2d1639725476422ahhaaaaBoysYellowHoodedSweatshirt1.jpg",

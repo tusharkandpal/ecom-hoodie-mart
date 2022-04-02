@@ -1,0 +1,41 @@
+/* || PRIVATE COMPONENT */
+.empty-component {
+  display: grid;
+  place-content: center;
+  min-height: 80vh;
+}
+.private-component {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+  padding: 1rem 0.5rem;
+}
+.private-products {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  grid-gap: 0.6rem;
+}
+.private-header {
+  text-align: center;
+}
+
+/* || CART */
+.cart-details {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 0.5rem;
+}
+.cart-details .private-products {
+  flex-basis: 60%;
+}
+
+/* || MEDIA QUERIES */
+@media screen and (max-width: 1030px) {
+  .private-products {
+    justify-content: center;
+  }
+}
+

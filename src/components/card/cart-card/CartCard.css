@@ -1,0 +1,18 @@
+/* || CART CARD */
+.private-component .card-horizontal {
+  margin: 0 0.8rem 0.8rem 0;
+}
+.private-component .card-img-horizontal {
+  max-height: 16rem;
+}
+
+/* || MEDIA QUERIES */
+@media screen and (max-width: 600px) {
+  .private-component .card-horizontal {
+    flex-direction: column;
+  }
+  .private-component .card-img-horizontal {
+    min-height: 23rem;
+  }
+}
+
