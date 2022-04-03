@@ -5,16 +5,17 @@
   justify-content: center;
   gap: 1rem;
 }
-.card-vertical {
+.category-section .card-vertical {
   min-width: 14rem;
 }
 .card-overlay-details {
   background-color: var(--card-overlay-bg-color);
 }
 
+/* || MEDIA QUERIES */
 @media screen and (max-width: 1000px) {
-  .card-vertical {
-    min-width: 12rem;
+  .category-section .card-vertical {
+    min-width: 10rem;
   }
   .category-section {
     gap: 0;

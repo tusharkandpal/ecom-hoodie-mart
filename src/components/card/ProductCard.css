@@ -1,4 +1,10 @@
-/* ------- Product Card ----------- */
+/* || PRODUCT CARD */
+.card {
+  min-width: 17rem;
+}
+.card-price-section {
+  align-items: center;
+}
 .card-badge {
   color: var(--card-overlay-color);
 }
@@ -12,14 +18,8 @@
   background-color: var(--card-discount-color);
 }
 
-.products-layout .card-vertical {
-  width: 17.5rem;
-}
-.products-layout .card-img {
-  width: 100%;
-  min-height: 24rem;
-}
-.card-price-section {
-  align-items: center;
+/* || CARD VERTICAL */
+.products-layout .card-img, .private-component .card-img {
+  min-height: 23rem;
 }
 
