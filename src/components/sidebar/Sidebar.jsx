@@ -8,13 +8,13 @@ export function Sidebar() {
   const { productState, productDispatch } = useProduct();
   const { sortByPrice, categories, priceRange, rating } = productState.filters;
   const [params] = useSearchParams();
-  const categoryParam = params.get("categoryName");
+  const categoryName = params.get("categoryName");
 
   useEffect(() => {
-    if (categoryParam)
+    if (categoryName)
       productDispatch({
         type: "CATEGORY",
-        payload: { category: categoryParam },
+        payload: { category: categoryName },
       });
 
     return () => {
