@@ -20,12 +20,15 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   padding: 1.5rem 0;
-  justify-content: center;
 }
 
+/* || MEDIA QUERIES */
 @media screen and (max-width: 500px) {
   .products-section-header {
     text-align: center;
+  }
+  .products-layout {
+    justify-content: center;
   }
 }
 

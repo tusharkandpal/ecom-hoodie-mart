@@ -2,6 +2,7 @@ import "./Categories.css";
 import axios from "axios";
 import { useEffect } from "react";
 import { useCategory } from "../../context/context";
+import { Link } from "react-router-dom";
 
 export function Categories() {
   const { categoryState, categoryDispatch } = useCategory();
@@ -11,7 +12,10 @@ export function Categories() {
     (async () => {
       try {
         const { data } = await axios.get("/api/categories");
-        categoryDispatch({ type: "SUCCESS", payload: { data: data.categories } });
+        categoryDispatch({
+          type: "SUCCESS",
+          payload: { data: data.categories },
+        });
       } catch (error) {
         categoryDispatch({ type: "ERROR", payload: { error: error.message } });
       }
@@ -25,19 +29,23 @@ export function Categories() {
       ) : error !== "" ? (
         <p className="error-message">{error}</p>
       ) : (
-        categories.map((category) => (
-          <div className="card card-vertical" key={category._id}>
+        categories.map(({_id, imgUrl, categoryName}) => (
+          <Link
+            to={`/product-listing?categoryName=${categoryName}`}
+            className="card card-vertical"
+            key={_id}
+          >
             <div className="card-overlay-container card-opacity">
               <img
                 className="card-img"
-                src={category.imgUrl}
-                alt={category.categoryName}
+                src={imgUrl}
+                alt={categoryName}
               />
               <div className="card-overlay-details">
-                <h3 className="card-overlay-title">{category.categoryName}</h3>
+                <h3 className="card-overlay-title">{categoryName}</h3>
               </div>
             </div>
-          </div>
+          </Link>
         ))
       )}
     </section>

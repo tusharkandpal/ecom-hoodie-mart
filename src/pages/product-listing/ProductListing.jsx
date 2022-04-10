@@ -1,24 +1,11 @@
 import "./ProductListing.css";
-import axios from "axios";
-import { useEffect } from "react";
 import { Sidebar, ProductCard } from "../../components/components";
 import { useProduct } from "../../context/context";
 import { useFilteredProducts } from "../../custom-hooks/custom-hooks";
 
 export function ProductListing() {
-  const { productState, productDispatch } = useProduct();
+  const { productState } = useProduct();
   const { products, error, loading } = productState;
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const { data } = await axios.get("/api/products");
-        productDispatch({ type: "SUCCESS", payload: { data: data.products } });
-      } catch (error) {
-        productDispatch({ type: "ERROR", payload: { error: error.message } });
-      }
-    })();
-  }, []);
 
   const filteredProducts = useFilteredProducts([...products]);
 

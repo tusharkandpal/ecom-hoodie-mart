@@ -1,11 +1,28 @@
-import { useState } from "react";
 import "./Sidebar.css";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useProduct } from "../../context/context";
 
 export function Sidebar() {
   const [sidebarToggle, setSidebarToggle] = useState("");
   const { productState, productDispatch } = useProduct();
   const { sortByPrice, categories, priceRange, rating } = productState.filters;
+  const [params] = useSearchParams();
+  const categoryName = params.get("categoryName");
+
+  useEffect(() => {
+    if (categoryName)
+      productDispatch({
+        type: "CATEGORY",
+        payload: { category: categoryName },
+      });
+
+    return () => {
+      productDispatch({
+        type: "CLEAR_ALL",
+      });
+    };
+  }, []);
 
   const sidebarHandler = () => {
     sidebarToggle === ""
