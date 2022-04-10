@@ -13,6 +13,9 @@ const CartProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const addToCartHandler = async (product) => {
+    if (!isLoggedIn) {
+      return navigate("/login");
+    }
     const { data, status } = await addToCart(product);
     if (status === 201) {
       setCart(data.cart);

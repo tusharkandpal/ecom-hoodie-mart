@@ -1,10 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/context";
-import {
-  addToWishlist,
-  removeFromWishlist,
-} from "../services/services";
+import { addToWishlist, removeFromWishlist } from "../services/services";
 
 const WishlistContext = createContext();
 
@@ -26,9 +23,6 @@ const WishlistProvider = ({ children }) => {
   };
 
   const removeFromWishlistHandler = async (id) => {
-    if (!isLoggedIn) {
-      return navigate("/login");
-    }
     const { data, status } = await removeFromWishlist(id);
     if (status === 200) {
       setWishlist(data.wishlist);
