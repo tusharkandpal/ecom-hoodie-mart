@@ -1,11 +1,12 @@
 import "./ProductListing.css";
 import { Sidebar, ProductCard } from "../../components/components";
-import { useProduct } from "../../context/context";
+import { useProduct, useTheme } from "../../context/context";
 import { useFilteredProducts } from "../../custom-hooks/custom-hooks";
 
 export function ProductListing() {
   const { productState } = useProduct();
   const { products, error, loading } = productState;
+  const { theme } = useTheme();
 
   const filteredProducts = useFilteredProducts([...products]);
 
@@ -13,7 +14,7 @@ export function ProductListing() {
     <main className="products-main">
       <Sidebar />
       {/* || PRODUCTS SECTION */}
-      <section className="products-section">
+      <section className={`products-section ${theme}`}>
         <div className="products-section-header">
           <h3 className="products-sub-header">Showing All Products</h3>
           <span> (Showing {filteredProducts.length} products)</span>

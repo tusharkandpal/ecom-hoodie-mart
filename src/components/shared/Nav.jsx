@@ -1,7 +1,7 @@
 import "./Nav.css";
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useAuth, useWishlist, useCart } from "../../context/context";
+import { useAuth, useWishlist, useCart, useTheme } from "../../context/context";
 
 export function Nav() {
   const { authState, logoutHandler } = useAuth();
@@ -9,6 +9,7 @@ export function Nav() {
   const { wishlist, setWishlist } = useWishlist();
   const { cart, setCart } = useCart();
   const { isLoggedIn } = authState;
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     setWishlist([]);
@@ -24,7 +25,7 @@ export function Nav() {
       </Link>
       <span className="search-addon">
         <i className="fa-solid fa-magnifying-glass search-icon"></i>
-        <input type="text" className="search-input" placeholder="Search" />
+        <input type="text" className={`search-input ${theme}`} placeholder="Search" />
       </span>
       <div className="nav-right">
         {isLoggedIn ? (
@@ -36,9 +37,11 @@ export function Nav() {
             Logout
           </button>
         ) : pathname === "/login" ? (
-          <button type="button" className="btn btn-sm primary">
-            Signup
-          </button>
+          <Link to="/signup">
+            <button type="button" className="btn btn-sm primary">
+              Signup
+            </button>
+          </Link>
         ) : (
           <Link to="/login">
             <button type="button" className="btn btn-sm primary">
@@ -59,7 +62,12 @@ export function Nav() {
             <span className="badge-count">{cart.length}</span>
           </Link>
         </span>
-        <i className="fa-solid fa-circle-half-stroke badge badge-symbol"></i>
+        <i
+          className="fa-solid fa-circle-half-stroke badge badge-symbol"
+          onClick={() =>
+            setTheme((theme) => (theme === "light" ? "dark" : "light"))
+          }
+        ></i>
       </div>
     </nav>
   );

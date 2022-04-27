@@ -1,8 +1,10 @@
 /* || PRIVATE COMPONENT */
+.empty-component, .private-component {
+  min-height: 89.8vh;
+}
 .empty-component {
   display: grid;
   place-content: center;
-  min-height: 80vh;
 }
 .private-component {
   display: flex;
