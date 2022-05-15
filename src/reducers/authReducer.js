@@ -27,8 +27,12 @@ export const authReducer = (state, { type, payload }) => {
         isLoggedIn: true,
       };
 
-    case "LOGOUT": 
-      return authInitialState;
+    case "LOGOUT":
+      return {
+        user: {},
+        isLoggedIn: false,
+        error: "",
+      };
 
     case "FAILED":
       return { ...state, error: `${payload.path} failed! Please try again.` };
