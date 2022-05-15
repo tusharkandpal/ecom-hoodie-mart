@@ -18,7 +18,7 @@ const AuthProvider = ({ children }) => {
       authDispatch({ type: "LOGIN", payload: { user: data.foundUser } });
       localStorage.setItem("encodedToken", data.encodedToken);
       localStorage.setItem("user", JSON.stringify(data.foundUser));
-      navigate("/", { replace: true });
+      navigate("/product-listing", { replace: true });
     } catch (error) {
       authDispatch({ type: "FAILED", payload: { path: "Login" } });
       setTimeout(() => {
@@ -36,7 +36,7 @@ const AuthProvider = ({ children }) => {
       authDispatch({ type: "SIGNUP", payload: { user: data.createdUser } });
       localStorage.setItem("encodedToken", data.encodedToken);
       localStorage.setItem("user", JSON.stringify(data.createdUser));
-      navigate("/", { replace: true });
+      navigate("/product-listing", { replace: true });
     } catch (error) {
       authDispatch({ type: "FAILED", payload: { path: "Signup" } });
       setTimeout(() => {

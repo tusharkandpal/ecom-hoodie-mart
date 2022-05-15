@@ -9,7 +9,7 @@
   min-width: 14rem;
 }
 .card-overlay-details {
-  background-color: var(--card-overlay-bg-color);
+  background-color: var(--product-card-overlay-bg-color);
 }
 
 /* || MEDIA QUERIES */
