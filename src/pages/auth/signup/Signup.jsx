@@ -1,9 +1,9 @@
-import "./Login.css";
+import "./Signup.css";
 import { useAuth, useTheme } from "../../../context/context";
 import { Link } from "react-router-dom";
 
-export function Login() {
-  const { authState, loginHandler } = useAuth();
+export function Signup() {
+  const { authState, signupHandler } = useAuth();
   const { error } = authState;
   const { theme } = useTheme();
 
@@ -11,28 +11,24 @@ export function Login() {
     e.preventDefault();
 
     const form = e.target;
-    const [email, password] = e.target.elements;
-
-    // Implementing easy login for now
-    email.value = "johndoe@gmail.com";
-    password.value = "johnDoe123";
 
     if (!form.checkValidity()) form.classList.add("validate");
     else {
-      loginHandler(email.value, password.value);
+      const [email, password] = e.target.elements;
+      signupHandler(email.value, password.value);
     }
   };
 
   return (
-    <main className={`login-main ${theme}`}>
-      <section className="login-section">
+    <main className={`signup-main ${theme}`}>
+      <section className="signup-section">
         <form
           noValidate
           className={`form-container ${theme}`}
           onSubmit={(e) => submitHandler(e)}
         >
           <div className="form-field">
-            <h3 className="login-header">Login</h3>
+            <h3 className="signup-header">Signup</h3>
             <label className="form-label required" htmlFor="email">
               Email
             </label>
@@ -60,25 +56,36 @@ export function Login() {
               type="password"
               placeholder="************"
               required
+              minLength="6"
             />
             <p className="form-invalid-message">
-              <i className="fas fa-info-circle"></i> Please enter your password
+              <i className="fas fa-info-circle"></i> Please enter atleast 6
+              characters!
+            </p>
+            <p className="form-valid-message">
+              <i className="fas fa-check-circle"></i> Strong password!
             </p>
           </div>
           <div className="form-field">
-            <input className="form-checkbox" type="checkbox" id="terms" />
-            <label htmlFor="terms" className="form-label">
-              Remember me
+            <input
+              className="form-checkbox"
+              type="checkbox"
+              id="terms"
+              required
+            />
+            <label htmlFor="terms" className="form-label required">
+              I accept all Terms & Conditions
             </label>
-            <a href="#password-reset" className="form-link">
-              Forgot your password ?
-            </a>
+            <p className="form-checkbox-message">
+              <i className="fas fa-info-circle"></i> You must agree before
+              submitting!
+            </p>
           </div>
           <button className="btn btn-md primary form-btn" type="submit">
-            Login
+            Create new account
           </button>
-          <Link to="/signup" className="link signup-link">
-            Create new account <i className="fa-solid fa-greater-than"></i>
+          <Link to="/login" className="link login-link">
+            Already have an account <span className="arrow">&gt;</span>
           </Link>
           {error && <p className="form-error-message">{error}</p>}
         </form>
@@ -86,4 +93,3 @@ export function Login() {
     </main>
   );
 }
-

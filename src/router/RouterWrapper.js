@@ -1,6 +1,6 @@
 import MockMan from "mockman-js";
 import { Routes, Route } from "react-router-dom";
-import { Home, Login, ProductListing, Wishlist, Cart, PageNotFound } from "../pages/pages";
+import { Home, Login, Signup, ProductListing, Wishlist, Cart, PageNotFound } from "../pages/pages";
 import { ProtectedRoute } from "./ProtectedRoute";
 
 export function RouterWrapper() {
@@ -17,6 +17,7 @@ export function RouterWrapper() {
         element={<ProtectedRoute ProtectedComponent={<Cart />} />}
       ></Route>
       <Route path="/login" element={<Login />}></Route>
+      <Route path="/signup" element={<Signup />}></Route>
       <Route path="/mockman" element={<MockMan />}></Route>
       <Route path="*" element={<PageNotFound />}></Route>
     </Routes>

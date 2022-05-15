@@ -1,3 +1,7 @@
+.main,.products-section,.login-main,.signup-main {
+  background-color: var(--component-bg-color);
+}
+
 .card,
 .form-container {
   background-color: var(--container-bg-color);
@@ -9,7 +13,13 @@
 
 a {
   text-decoration: none;
-  color: black;
+  color: var(--badge-status-bg);
+}
+
+/* THEME CHANGES */
+.dark, .dark a {
+  color: var(--nav-title-color);
+  background-color: var(--dark-mode-color);
 }
 
 @media screen and (max-width: 500px) {

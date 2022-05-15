@@ -1,7 +1,8 @@
-import { useCart } from "../../../context/cart-context";
+import { useCart, useTheme } from "../../../context/context";
 
 export function OrderCard() {
   const { cart } = useCart();
+  const { theme } = useTheme();
 
   const totalCartDiscount = cart.reduce(
     (totalSavings, product) =>
@@ -23,13 +24,12 @@ export function OrderCard() {
   );
 
   const totalCartItems = cart.reduce(
-    (totalCartQty, product) =>
-      product.qty + totalCartQty,
+    (totalCartQty, product) => product.qty + totalCartQty,
     0
   );
 
   return (
-    <div className="card card-text-only">
+    <div className={`card card-text-only ${theme}`}>
       <h3 className="card-text-title">PRICE DETAILS</h3>
       <hr className="line-separate" />
       <p className="card-text-item">

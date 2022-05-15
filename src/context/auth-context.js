@@ -12,15 +12,36 @@ const AuthProvider = ({ children }) => {
   const loginHandler = async (email, password) => {
     try {
       const { data } = await axios.post("/api/auth/login", {
-        email: email,
-        password: password,
+        email,
+        password,
       });
       authDispatch({ type: "LOGIN", payload: { user: data.foundUser } });
       localStorage.setItem("encodedToken", data.encodedToken);
       localStorage.setItem("user", JSON.stringify(data.foundUser));
-      navigate("/", { replace: true });
+      navigate("/product-listing", { replace: true });
     } catch (error) {
       authDispatch({ type: "FAILED", payload: { path: "Login" } });
+      setTimeout(() => {
+        authDispatch({ type: "RESET" });
+      }, 1500);
+    }
+  };
+
+  const signupHandler = async (email, password) => {
+    try {
+      const { data } = await axios.post("/api/auth/signup", {
+        email,
+        password,
+      });
+      authDispatch({ type: "SIGNUP", payload: { user: data.createdUser } });
+      localStorage.setItem("encodedToken", data.encodedToken);
+      localStorage.setItem("user", JSON.stringify(data.createdUser));
+      navigate("/product-listing", { replace: true });
+    } catch (error) {
+      authDispatch({ type: "FAILED", payload: { path: "Signup" } });
+      setTimeout(() => {
+        authDispatch({ type: "RESET" });
+      }, 1500);
     }
   };
 
@@ -36,6 +57,7 @@ const AuthProvider = ({ children }) => {
       value={{
         authState,
         loginHandler,
+        signupHandler,
         logoutHandler,
         authDispatch,
       }}

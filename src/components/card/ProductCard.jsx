@@ -1,6 +1,6 @@
 import "./ProductCard.css";
 import { Link } from "react-router-dom";
-import { useWishlist, useCart } from "../../context/context";
+import { useWishlist, useCart, useTheme } from "../../context/context";
 
 export const ProductCard = (product) => {
   const {
@@ -20,9 +20,10 @@ export const ProductCard = (product) => {
   const { wishlist, addToWishlistHandler, removeFromWishlistHandler } =
     useWishlist();
   const { cart, addToCartHandler } = useCart();
+  const { theme } = useTheme();
 
   return (
-    <div className="card card-vertical">
+    <div className={`card card-vertical ${theme}`}>
       <div className="card-overlay-container">
         <img className="card-img" src={imgUrl} alt="product" />
         <small
@@ -67,7 +68,7 @@ export const ProductCard = (product) => {
         {wishlist.some((wishlistProduct) => wishlistProduct._id === _id) ? (
           <button
             type="button"
-            className="btn btn-sm outline outline-info card-icon"
+            className={`btn btn-sm outline outline-info card-icon ${theme}`}
             onClick={() => {
               removeFromWishlistHandler(_id);
             }}
@@ -77,7 +78,7 @@ export const ProductCard = (product) => {
         ) : (
           <button
             type="button"
-            className="btn btn-sm outline outline-info card-icon"
+            className={`btn btn-sm outline outline-info card-icon ${theme}`}
             onClick={() => addToWishlistHandler(product)}
           >
             <i className="fa-regular fa-heart btn-icon"></i>

@@ -1,5 +1,5 @@
 import "./CartCard.css";
-import { useCart, useWishlist } from "../../../context/context";
+import { useCart, useWishlist, useTheme } from "../../../context/context";
 
 export const CartCard = (product) => {
   const { _id, title, subTitle, imgUrl, originalPrice, sellingPrice, qty } =
@@ -7,13 +7,14 @@ export const CartCard = (product) => {
   const { removeFromCartHandler, cartQuantityHandler } = useCart();
   const { wishlist, addToWishlistHandler, removeFromWishlistHandler } =
     useWishlist();
+    const { theme } = useTheme();
 
   const discount = Math.round(
     ((originalPrice - sellingPrice) / originalPrice) * 100
   );
 
   return (
-    <div className="card card-horizontal">
+    <div className={`card card-horizontal ${theme}`}>
       <img className="card-img-horizontal" src={imgUrl} alt={subTitle} />
       <div className="card-details-horizontal">
         <div className="card-details">
@@ -34,7 +35,7 @@ export const CartCard = (product) => {
               className="card-quantity-btn"
               onClick={() => cartQuantityHandler(_id, "decrement")}
             >
-              <i className="fa-solid fa-minus"></i>
+              <i className={`fa-solid fa-minus ${theme}`}></i>
             </button>
             <span className="quantity-value">{qty}</span>
             <button
@@ -43,14 +44,14 @@ export const CartCard = (product) => {
               className="card-quantity-btn"
               onClick={() => cartQuantityHandler(_id, "increment")}
             >
-              <i className="fa-solid fa-plus"></i>
+              <i className={`fa-solid fa-plus ${theme}`}></i>
             </button>
           </p>
         </div>
         <div className="card-horizontal-buttons">
           <button
             type="button"
-            className="btn btn-md outline outline-danger card-icon"
+            className={`btn btn-md outline outline-danger card-icon ${theme}`}
             onClick={() => removeFromCartHandler(_id)}
           >
             <i className="fa-solid fa-trash btn-icon"></i>
@@ -60,7 +61,7 @@ export const CartCard = (product) => {
           {wishlist.some((wishlistProduct) => wishlistProduct._id === _id) ? (
             <button
               type="button"
-              className="btn btn-md outline outline-info card-btn"
+              className={`btn btn-md outline outline-info card-btn ${theme}`}
               onClick={() => removeFromWishlistHandler(_id)}
             >
               <i className="fa-solid fa-heart"></i>
@@ -68,7 +69,7 @@ export const CartCard = (product) => {
           ) : (
             <button
               type="button"
-              className="btn btn-md outline outline-info card-btn"
+              className={`btn btn-md outline outline-info card-btn ${theme}`}
               onClick={() => addToWishlistHandler(product)}
             >
               <i className="fa-regular fa-heart btn-icon"></i>
