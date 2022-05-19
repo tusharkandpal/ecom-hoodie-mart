@@ -64,5 +64,9 @@
     background-color: var(--outline-hover-color);
     z-index: 2;
   }
+
+  .dark .sidebar-toggle {
+    background-color: var(--dark-mode-color);
+  }
 }
 
