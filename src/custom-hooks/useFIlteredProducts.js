@@ -4,21 +4,26 @@ import {
   categoryFilterProducts,
   priceRangeFilterProducts,
   ratingFilterProducts,
+  searchFilterProducts,
 } from "../utils/utils.js";
 
 export const useFilteredProducts = (filteredProducts) => {
   const { productState } = useProduct();
-  const { sortByPrice, categories, priceRange, rating } = productState.filters;
+  const { searchTerm, sortByPrice, categories, priceRange, rating } =
+    productState.filters;
 
-  return sortByPriceFilterProducts(
-    ratingFilterProducts(
-      priceRangeFilterProducts(
-        categoryFilterProducts(filteredProducts, categories),
-        priceRange
+  return searchFilterProducts(
+    sortByPriceFilterProducts(
+      ratingFilterProducts(
+        priceRangeFilterProducts(
+          categoryFilterProducts(filteredProducts, categories),
+          priceRange
+        ),
+        rating
       ),
-      rating
+      sortByPrice
     ),
-    sortByPrice
+    searchTerm
   );
 };
 

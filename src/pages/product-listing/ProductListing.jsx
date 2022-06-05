@@ -26,9 +26,9 @@ export function ProductListing() {
           ) : error !== "" ? (
             <p className="error-message">{error}</p>
           ) : (
-            filteredProducts.map((product) => (
+            filteredProducts.length !== 0 ? filteredProducts.map((product) => (
               <ProductCard {...product} key={product._id} />
-            ))
+            )) : <h4>Sorry 😔 No Product at the moment with this search.</h4>
           )}
         </article>
       </section>

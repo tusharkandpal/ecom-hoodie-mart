@@ -25,7 +25,7 @@ export const ProductCard = (product) => {
   return (
     <div className={`card card-vertical ${theme}`}>
       <div className="card-overlay-container">
-        <img className="card-img" src={imgUrl} alt="product" />
+        <img className="card-img" src={imgUrl} alt="product" loading="lazy" />
         <small
           className={`card-badge ${
             rating < 1.5 ? "red-bg" : rating < 3 ? "yellow-bg" : "green-bg"

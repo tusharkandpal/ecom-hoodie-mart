@@ -1,7 +1,13 @@
 import "./Nav.css";
 import { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { useAuth, useWishlist, useCart, useTheme } from "../../context/context";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import {
+  useProduct,
+  useAuth,
+  useWishlist,
+  useCart,
+  useTheme,
+} from "../../context/context";
 
 export function Nav() {
   const { authState, logoutHandler } = useAuth();
@@ -10,6 +16,13 @@ export function Nav() {
   const { cart, setCart } = useCart();
   const { isLoggedIn } = authState;
   const { theme, setTheme } = useTheme();
+  const {
+    productState: {
+      filters: { searchTerm },
+    },
+    productDispatch,
+  } = useProduct();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setWishlist([]);
@@ -25,7 +38,19 @@ export function Nav() {
       </Link>
       <span className="search-addon">
         <i className="fa-solid fa-magnifying-glass search-icon"></i>
-        <input type="text" className={`search-input ${theme}`} placeholder="Search" />
+        <input
+          type="text"
+          className={`search-input ${theme}`}
+          value={searchTerm}
+          placeholder="Search"
+          onChange={(e) => {
+            productDispatch({
+              type: "SET_SEARCH_TERM",
+              payload: { searchTerm: e.target.value },
+            });
+            navigate("/product-listing");
+          }}
+        />
       </span>
       <div className="nav-right">
         {isLoggedIn ? (
