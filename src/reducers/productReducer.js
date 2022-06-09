@@ -8,6 +8,7 @@ export const initialState = {
     priceRange: 4000,
     categories: [],
     rating: 0,
+    searchTerm: "",
   },
 };
 
@@ -26,6 +27,12 @@ export const productReducer = (state, { type, payload }) => {
         ...state,
         error: payload.error,
         loading: false,
+      };
+
+    case "SET_SEARCH_TERM":
+      return {
+        ...state,
+        filters: { ...state.filters, searchTerm: payload.searchTerm },
       };
 
     case "SORT_BY_PRICE":

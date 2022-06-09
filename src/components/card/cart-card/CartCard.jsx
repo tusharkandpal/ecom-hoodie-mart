@@ -15,7 +15,7 @@ export const CartCard = (product) => {
 
   return (
     <div className={`card card-horizontal ${theme}`}>
-      <img className="card-img-horizontal" src={imgUrl} alt={subTitle} />
+      <img className="card-img-horizontal" src={imgUrl} alt={subTitle} loading="lazy" />
       <div className="card-details-horizontal">
         <div className="card-details">
           <h3 className="card-title">{title}</h3>
