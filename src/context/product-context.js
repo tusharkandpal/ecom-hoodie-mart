@@ -19,6 +19,7 @@ const ProductProvider = ({ children }) => {
         productDispatch({ type: "ERROR", payload: { error: error.message } });
       }
     })();
+    
   }, []);
 
   return (
